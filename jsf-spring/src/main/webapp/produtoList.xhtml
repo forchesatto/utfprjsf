@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+<meta charset="UTF-8"/>
+<title>Produto</title>
+</h:head>
+<h:body>
+	<h:form id="form1">
+	
+		<h:commandLink action="produtoForm" value="Novo"/>
+	
+		<h:dataTable value="#{produtoListMB.produtos}" var="produto">
+			<h:column>
+				<f:facet name="header">
+					Nome
+				</f:facet>
+				<h:outputText value="#{produto.nome}"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					Valor Mínimo
+				</f:facet>
+				<h:outputText value="#{produto.valor}"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					Data Vencimento 
+				</f:facet>
+				<h:outputText value="#{produto.dataVencimento}"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					Opções
+				</f:facet>
+				<h:commandButton action="#{produtoFormMB.editar(produto)}" 
+															value="Editar"/>
+			</h:column>
+		</h:dataTable>
+	
+	</h:form>
+</h:body>
+</html>

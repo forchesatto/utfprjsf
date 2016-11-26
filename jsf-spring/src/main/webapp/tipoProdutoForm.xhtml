@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+<meta charset="UTF-8"/>
+<title>Tipo produto</title>
+</h:head>
+<h:body>
+	<h:form id="form1">
+		<h:messages/>
+
+		<h:inputHidden id="codigo" 
+								value="#{tipoProdutoFormMB.tipoProduto.codigo}"/>
+		
+		<h:panelGrid columns="2">
+		
+			<h:outputLabel for="nome" value="Nome"/>
+			<h:panelGroup>
+				<h:inputText id="nome" 
+						value="#{tipoProdutoFormMB.tipoProduto.nome}"
+						required="true" requiredMessage="Nome obrigatorio"/>
+				<h:message id="nomeMsg" for="nome"/>
+			</h:panelGroup>
+			
+			<h:outputLabel for="valorMinimo" value="Valor Mínimo"/>
+			<h:inputText id="valorMinimo" 
+					value="#{tipoProdutoFormMB.tipoProduto.valorMinimo}"/>
+			
+			
+			<f:facet name="footer">
+				<h:commandButton action="#{tipoProdutoFormMB.salvar}" 
+												value="Salvar"/>
+				<h:commandButton action="#{tipoProdutoFormMB.remover}" 
+												value="Remover"/>	
+			</f:facet>
+		</h:panelGrid>
+	
+	</h:form>
+</h:body>
+</html>

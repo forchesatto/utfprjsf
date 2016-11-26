@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 
 import br.edu.utfpr.aulajsf.model.TipoProduto;
 
@@ -28,6 +30,13 @@ public class TipoProdutoMB implements Serializable {
 	public void adicionar(){
 		getTiposProdutos().add(this.getTipoProduto());
 		tipoProduto = new TipoProduto();
+		FacesContext context = FacesContext.getCurrentInstance();
+		context.addMessage(null, new FacesMessage
+								(FacesMessage.SEVERITY_INFO, 
+									"Salvo com sucesso", 
+									"Tipo de produto salvo com sucesso"
+								)
+							);
 	}
 	
 	public void editar(TipoProduto tipoProduto){
