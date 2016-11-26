@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+<meta charset="UTF-8"/>
+<title>Produto</title>
+</h:head>
+<h:body>
+	<h:form id="form1">
+		<h:panelGrid columns="2">
+			<h:outputLabel for="nome" value="Nome"/>
+			<h:inputText id="nome" value="#{produtoMB.produto.nome}"/>
+			
+			<h:outputLabel for="valorMinimo" value="Valor Mínimo"/>
+			<h:inputText id="valorMinimo" 
+					value="#{produtoMB.produto.valor}"/>
+			
+			
+<!-- 			<h:inputText value="#{tipoProdutoMB.tipoProduto.dataVencimento}"> -->
+<!-- 				<f:converter converterId="localDateFacesConverter" for="inputAdmissao"/> -->
+<!-- 			</h:inputText> -->
+			
+				
+			<f:facet name="footer">
+				<h:commandButton action="#{produtoMB.adicionar}" 
+												value="Adicionar"/>	
+			</f:facet>
+		</h:panelGrid>
+	
+		<h:dataTable value="#{produtoMB.produtos}" var="produto">
+			<h:column>
+				<f:facet name="header">
+					Nome
+				</f:facet>
+				<h:outputText value="#{produto.nome}"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					Valor Mínimo
+				</f:facet>
+				<h:outputText value="#{produto.valor}"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					Opções
+				</f:facet>
+				<h:commandButton action="#{produtoMB.editar(produto)}" 
+															value="Editar"/>
+				<h:commandButton action="#{produtoMB.remover(produto)}" 
+															value="Remover"/>
+			</h:column>
+		</h:dataTable>
+	
+	</h:form>
+</h:body>
+</html>

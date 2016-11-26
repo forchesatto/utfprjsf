@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+<meta charset="UTF-8"/>
+<title>Página inicial</title>
+</h:head>
+<h:body>
+	<h:form id="form1">
+		<h:panelGrid columns="2">
+			<h:outputLabel for="nome" value="Nome"/>
+			<h:inputText id="nome" value="#{indexMB.pessoa.nome}"/>
+			
+			<h:outputLabel for="rg" value="RG"/>
+			<h:inputText id="rg" value="#{indexMB.pessoa.rg}"/>
+			
+			<f:facet name="footer">
+				<h:commandButton action="#{indexMB.adicionarNome}" 
+												value="Adicionar"/>	
+			</f:facet>
+		</h:panelGrid>
+	
+		<h:dataTable value="#{indexMB.pessoas}" var="pessoa">
+			<h:column>
+				<f:facet name="header">
+					Nome
+				</f:facet>
+				<h:outputText value="#{pessoa.nome}"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					RG
+				</f:facet>
+				<h:outputText value="#{pessoa.rg}"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					Opções
+				</f:facet>
+				<h:commandButton action="#{indexMB.editar(pessoa)}" 
+															value="Editar"/>
+				<h:commandButton action="#{indexMB.remover(pessoa)}" 
+															value="Remover"/>
+			</h:column>
+		</h:dataTable>
+	
+	<h:commandLink action="#{indexMB.tipoProduto}" 
+							value="tipo produto"></h:commandLink>	
+	</h:form>
+	
+	
+	
+	<!-- 		<h:selectOneMenu> -->
+<!-- 			<f:selectItems  -->
+<!-- 				value="#{indexMB.pessoas}" var="pessoa"  -->
+<!-- 				itemLabel="#{pessoa.nome}"/> -->
+<!-- 		</h:selectOneMenu> -->
+</h:body>
+</html>
