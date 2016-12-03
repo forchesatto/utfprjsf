@@ -69,6 +69,12 @@
 			<artifactId>hibernate-validator</artifactId>
 		</dependency>
 
+		<!-- Compatibilidade com LocalDate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-java8</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
@@ -91,7 +97,7 @@
 			<layout>default</layout>
 		</repository>
 	</repositories>
-	
+
 	<build>
 		<finalName>spring-boot-jsf</finalName>
 		<plugins>
