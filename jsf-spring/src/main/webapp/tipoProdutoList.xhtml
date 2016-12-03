@@ -2,7 +2,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 <meta charset="UTF-8"/>
@@ -14,27 +15,18 @@
 		
 		<h:commandLink action="tipoProdutoForm" value="Novo"/>
 		
-		<h:dataTable value="#{tipoProdutoListMB.tiposProdutos}" var="tipoProduto">
-			<h:column>
-				<f:facet name="header">
-					Nome
-				</f:facet>
+		<p:dataTable value="#{tipoProdutoListMB.tiposProdutos}" var="tipoProduto">
+			<p:column headerText="Nome">
 				<h:outputText value="#{tipoProduto.nome}"/>
-			</h:column>
-			<h:column>
-				<f:facet name="header">
-					Valor Mínimo
-				</f:facet>
+			</p:column>
+			<p:column headerText="Valor Mínimo">
 				<h:outputText value="#{tipoProduto.valorMinimo}"/>
-			</h:column>
-			<h:column>
-				<f:facet name="header">
-					Opções
-				</f:facet>
-				<h:commandButton action="#{tipoProdutoFormMB.editar(tipoProduto)}" 
-															value="Editar"/>
-			</h:column>
-		</h:dataTable>
+			</p:column>
+			<p:column headerText="Opções">
+				<p:commandButton action="#{tipoProdutoFormMB.editar(tipoProduto)}" 
+															icon="ui-icon-pencil"/>
+			</p:column>
+		</p:dataTable>
 	
 	</h:form>
 </h:body>

@@ -2,8 +2,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
-
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
 <meta charset="UTF-8"/>
 <title>Tipo produto</title>
@@ -15,7 +15,11 @@
 		<h:inputHidden id="codigo" 
 								value="#{tipoProdutoFormMB.tipoProduto.codigo}"/>
 		
-		<h:panelGrid columns="2">
+		<p:panelGrid columns="2">
+		
+			<f:facet name="header">
+				<h:outputText value="Cadastro tipo produto"></h:outputText>
+			</f:facet>
 		
 			<h:outputLabel for="nome" value="Nome"/>
 			<h:panelGroup>
@@ -31,12 +35,17 @@
 			
 			
 			<f:facet name="footer">
-				<h:commandButton action="#{tipoProdutoFormMB.salvar}" 
+				<p:commandButton action="#{tipoProdutoFormMB.salvar}" 
 												value="Salvar"/>
-				<h:commandButton action="#{tipoProdutoFormMB.remover}" 
+				<p:commandButton action="#{tipoProdutoFormMB.remover}" 
 												value="Remover"/>	
 			</f:facet>
-		</h:panelGrid>
+		</p:panelGrid>
+	
+		<p:inputText id="surname" value="#{tipoProdutoFormMB.lastname}">
+            <p:ajax event="blur" update="out2" />
+        </p:inputText>
+        <h:outputText id="out2" value="#{tipoProdutoFormMB.lastname}" />
 	
 	</h:form>
 </h:body>

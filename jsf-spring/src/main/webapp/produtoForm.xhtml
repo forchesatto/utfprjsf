@@ -21,8 +21,32 @@
 			
 			<h:outputLabel for="dataVencimento" value="Data Vencimento"/>
 			<h:inputText id="dataVencimento" 
-					value="#{produtoFormMB.produto.dataVencimento}" 
-						converter="localDateFacesConverter"/>
+					value="#{produtoFormMB.produto.dataVencimento}" >
+					
+				<f:converter converterId="localDateFacesConverter"/>
+				
+			</h:inputText>
+			
+			<h:outputLabel for="tipoProduto" value="Tipo produto"/>
+			<h:selectOneMenu id="tipoProduto" value="#{produtoFormMB.produto.tipoProduto}">
+				<f:selectItems value="#{tipoProdutoListMB.tiposProdutos}" 
+						var="tipoProduto"
+						itemLabel="#{tipoProduto.nome}"
+						itemValue="#{tipoProduto}" />
+				<f:converter converterId="tipoProdutoConverter"/>
+			</h:selectOneMenu>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 
 			<f:facet name="footer">
 				<h:commandButton action="#{produtoFormMB.salvar}" 

@@ -11,8 +11,11 @@
 <h:body>
 	<h:form id="form1">
 	
-		<h:commandLink action="produtoForm" value="Novo"/>
+		<h:commandLink action="produtoForm" value="Novo">
+		</h:commandLink>
 	
+		<h:panelGroup id="produtoForm"></h:panelGroup>
+
 		<h:dataTable value="#{produtoListMB.produtos}" var="produto">
 			<h:column>
 				<f:facet name="header">
@@ -30,7 +33,9 @@
 				<f:facet name="header">
 					Data Vencimento 
 				</f:facet>
-				<h:outputText value="#{produto.dataVencimento}"/>
+				<h:outputText value="#{produto.dataVencimento}">
+					<f:converter converterId="localDateFacesConverter"/>
+				</h:outputText>
 			</h:column>
 			<h:column>
 				<f:facet name="header">

@@ -7,18 +7,20 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.context.annotation.RequestScope;
+import org.springframework.web.context.annotation.SessionScope;
 
 import br.edu.utfpr.aulajsf.model.Pessoa;
 
 @Controller("indexMB")
-@RequestScope
+@SessionScope
 public class IndexMB implements Serializable {
 
 	private static final long serialVersionUID = 2950222347783415712L;
 	
 	private Pessoa pessoa;
 	private List<Pessoa> pessoas;
+	
+	private String nomeTeste;
 	
 	@PostConstruct
 	public void init(){
@@ -27,6 +29,7 @@ public class IndexMB implements Serializable {
 		getPessoas().add(new Pessoa("João","456"));
 		pessoa = new Pessoa();
 	}
+	
 	
 	public void botaoOK(){
 		this.getPessoa().setNome(getPessoa().getNome().toUpperCase()+" Botão OK");
@@ -63,6 +66,16 @@ public class IndexMB implements Serializable {
 
 	public void setPessoas(List<Pessoa> pessoas) {
 		this.pessoas = pessoas;
+	}
+
+
+	public String getNomeTeste() {
+		return nomeTeste;
+	}
+
+
+	public void setNomeTeste(String nomeTeste) {
+		this.nomeTeste = nomeTeste;
 	}
 	
 }

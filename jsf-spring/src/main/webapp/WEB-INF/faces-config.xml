@@ -9,6 +9,14 @@
 			org.springframework.web.jsf.el.SpringBeanFacesELResolver
 		</el-resolver>
 	</application>
+	<converter>
+		<converter-id>localDateFacesConverter</converter-id>
+		<converter-class>br.edu.utfpr.aulajsf.converter.LocalDateFacesConverter</converter-class>
+	</converter>
+	<converter>
+		<converter-id>tipoProdutoConverter</converter-id>
+		<converter-class>br.edu.utfpr.aulajsf.converter.TipoProdutoConverter</converter-class>
+	</converter>
 	
 	<lifecycle>
 		<phase-listener>br.edu.utfpr.aulajsf.listener.FaseJSFListener</phase-listener>

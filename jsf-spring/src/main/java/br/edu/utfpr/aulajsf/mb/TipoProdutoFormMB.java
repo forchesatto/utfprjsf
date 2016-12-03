@@ -22,6 +22,8 @@ public class TipoProdutoFormMB implements Serializable {
 	
 	private TipoProduto tipoProduto;
 	
+	private String lastname;
+	
 	@Autowired
 	private TipoProdutoRepository tipoProdutoRepository;
 	
@@ -72,6 +74,14 @@ public class TipoProdutoFormMB implements Serializable {
 
 	public void setTipoProduto(TipoProduto tipoProduto) {
 		this.tipoProduto = tipoProduto;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
 	
 }

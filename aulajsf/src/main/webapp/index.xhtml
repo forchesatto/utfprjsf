@@ -19,33 +19,37 @@
 			
 			<f:facet name="footer">
 				<h:commandButton action="#{indexMB.adicionarNome}" 
-												value="Adicionar"/>	
+												value="Adicionar">
+					<f:ajax execute="@form" render=":form1:dados" event="click"/>
+				</h:commandButton>	
 			</f:facet>
 		</h:panelGrid>
-	
-		<h:dataTable value="#{indexMB.pessoas}" var="pessoa">
-			<h:column>
-				<f:facet name="header">
-					Nome
-				</f:facet>
-				<h:outputText value="#{pessoa.nome}"/>
-			</h:column>
-			<h:column>
-				<f:facet name="header">
-					RG
-				</f:facet>
-				<h:outputText value="#{pessoa.rg}"/>
-			</h:column>
-			<h:column>
-				<f:facet name="header">
-					Opções
-				</f:facet>
-				<h:commandButton action="#{indexMB.editar(pessoa)}" 
-															value="Editar"/>
-				<h:commandButton action="#{indexMB.remover(pessoa)}" 
-															value="Remover"/>
-			</h:column>
-		</h:dataTable>
+		
+		<h:panelGroup id="dados">
+			<h:dataTable value="#{indexMB.pessoas}" var="pessoa">
+				<h:column>
+					<f:facet name="header">
+						Nome
+					</f:facet>
+					<h:outputText value="#{pessoa.nome}"/>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						RG
+					</f:facet>
+					<h:outputText value="#{pessoa.rg}"/>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						Opções
+					</f:facet>
+					<h:commandButton action="#{indexMB.editar(pessoa)}" 
+																value="Editar"/>
+					<h:commandButton action="#{indexMB.remover(pessoa)}" 
+																value="Remover"/>
+				</h:column>
+			</h:dataTable>
+		</h:panelGroup>
 	
 	<h:commandLink action="#{indexMB.tipoProduto}" 
 							value="tipo produto"></h:commandLink>	

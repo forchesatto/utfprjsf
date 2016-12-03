@@ -10,6 +10,9 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
 import javax.faces.convert.FacesConverter;
 
+import org.springframework.stereotype.Component;
+
+@Component
 @FacesConverter(forClass = LocalDate.class, 
 		value = "localDateFacesConverter")
 public class LocalDateFacesConverter implements Converter {
